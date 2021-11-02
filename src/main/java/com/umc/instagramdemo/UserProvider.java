@@ -17,7 +17,6 @@ public class UserProvider {
 
     public List<GetUserRes> getUser(){
         List<GetUserRes> userRes = userDao.userRes();
-
         return userRes;
     }
 
@@ -25,5 +24,14 @@ public class UserProvider {
         int personIdx= userDao.addUser(postUserReq);
         PostUserRes postUserRes = new PostUserRes(personIdx);
         return postUserRes;
+    }
+    public List<DeleteReelsRes> getDeletedReels(int reelsIdx){
+        List<DeleteReelsRes> reelsRes = userDao.reelsRes(reelsIdx);
+
+        return reelsRes;
+    }
+
+    public void deleteReels(int reelsIdx){
+        userDao.removeReels(reelsIdx);
     }
 }

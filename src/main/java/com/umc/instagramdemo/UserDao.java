@@ -39,4 +39,22 @@ public class UserDao {
         return this.jdbcTemplate.queryForObject("select last_insert_id()",int.class);
         /* last_insert_id 함수는 테이블의 마지막 auto_increment 값을 리턴한다!!! */
     }
+
+    public List<DeleteReelsRes> reelsRes(int reelsIdx){
+        return this.jdbcTemplate.query("Select * from Reels where reelsIdx = ?",
+                (rs, rowNum) -> new DeleteReelsRes(
+                        rs.getInt("reelsIdx"),
+                        rs.getString("userId"),
+                        rs.getString("videoUrl"),
+                        rs.getInt("audioIdx")), reelsIdx
+
+        );
+    }
+
+    // Delete User
+    public void removeReels(int reelsIdx) {
+        String deleteReelsQuery = "delete from Reels where reelsIdx = ?";
+        // Delete
+        this.jdbcTemplate.update(deleteReelsQuery, reelsIdx);
+    }
 }
