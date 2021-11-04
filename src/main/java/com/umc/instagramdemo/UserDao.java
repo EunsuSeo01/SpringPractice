@@ -40,6 +40,17 @@ public class UserDao {
         /* last_insert_id 함수는 테이블의 마지막 auto_increment 값을 리턴한다!!! */
     }
 
+    public int putReels(PutReelsReq putReelsReq, int reelsIdx) {
+        // reelsIdx가 어떤 값인 컬럼을 찾아서 userId, videoUrl, audioIdx 값을 지정된 값으로 수정한다.
+        String putReelsQuery = "update Reels set userId = ?, videoUrl = ?, audioIdx = ? where reelsIdx = ?";
+        Object[] updateReelsParams = new Object[]{
+                putReelsReq.getUserId(), putReelsReq.getVideoUrl(), putReelsReq.getAudioIdx(), reelsIdx
+        };
+        this.jdbcTemplate.update(putReelsQuery, updateReelsParams);
+
+        return reelsIdx;
+    }
+
     public List<DeleteReelsRes> reelsRes(int reelsIdx){
         return this.jdbcTemplate.query("Select * from Reels where reelsIdx = ?",
                 (rs, rowNum) -> new DeleteReelsRes(
@@ -51,10 +62,9 @@ public class UserDao {
         );
     }
 
-    // Delete User
+    // Delete User's Reels
     public void removeReels(int reelsIdx) {
         String deleteReelsQuery = "delete from Reels where reelsIdx = ?";
-        // Delete
         this.jdbcTemplate.update(deleteReelsQuery, reelsIdx);
     }
 }
