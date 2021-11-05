@@ -1,5 +1,14 @@
 package com.umc.instagramdemo.postTableModel;
 
-public class PostPostRes {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
+@AllArgsConstructor
+public class PostPostRes {
+    private int postIdx;
+    private int resCode;
+    private String resContent;
 }
