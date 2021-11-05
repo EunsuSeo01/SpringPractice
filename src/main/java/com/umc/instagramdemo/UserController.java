@@ -29,16 +29,4 @@ public class UserController {
         return postUserRes;
     }
 
-    @PutMapping("/reels/{reelsIdx}")
-    public int putReels(@RequestBody PutReelsReq putReelsReq, @PathVariable int reelsIdx) {
-        return userProvider.putReels(putReelsReq, reelsIdx);
-    }
-
-    @DeleteMapping("/reels/{reelsIdx}")
-    public List<DeleteReelsRes> removeReels(@PathVariable int reelsIdx) {
-        List<DeleteReelsRes> reelsRes = userProvider.getDeletedReels(reelsIdx);
-        userProvider.deleteReels(reelsIdx);
-        return reelsRes;
-    }
-
 }

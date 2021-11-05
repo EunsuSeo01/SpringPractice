@@ -26,17 +26,4 @@ public class UserProvider {
         return postUserRes;
     }
 
-    public int putReels(PutReelsReq putReelsReq, int reelsIdx) {
-        return userDao.putReels(putReelsReq, reelsIdx);
-    }
-
-    // 삭제된 릴스 정보 알려주기 위함.
-    public List<DeleteReelsRes> getDeletedReels(int reelsIdx){
-        List<DeleteReelsRes> reelsRes = userDao.reelsRes(reelsIdx);
-        return reelsRes;
-    }
-    // 릴스 삭제를 위함.
-    public void deleteReels(int reelsIdx){
-        userDao.removeReels(reelsIdx);
-    }
 }
