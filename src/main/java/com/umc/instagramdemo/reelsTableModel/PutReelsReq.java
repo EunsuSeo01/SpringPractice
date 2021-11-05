@@ -1,14 +1,14 @@
-package com.umc.instagramdemo.model;
+package com.umc.instagramdemo.reelsTableModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
-public class PostReelsReq {
+public class PutReelsReq {
     private String userId;
     private String videoUrl;
-    private String audioIdx;
+    private int audioIdx;
 }

@@ -1,6 +1,6 @@
 package com.umc.instagramdemo;
 
-import com.umc.instagramdemo.model.*;
+import com.umc.instagramdemo.reelsTableModel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
