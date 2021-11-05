@@ -15,6 +15,10 @@ public class PostProvider {
         this.postDao = postDao;
     }
 
+    public List<GetPostRes> getPost() {
+        return postDao.postRes();
+    }
+
     public PostPostRes postPost(PostPostReq postPostReq) {
         int postIdx = postDao.addPost(postPostReq);
         return new PostPostRes(postIdx, 200, "OK");
