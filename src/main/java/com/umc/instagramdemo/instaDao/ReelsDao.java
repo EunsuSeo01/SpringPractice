@@ -1,4 +1,4 @@
-package com.umc.instagramdemo;
+package com.umc.instagramdemo.instaDao;
 
 import com.umc.instagramdemo.reelsTableModel.*;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,6 @@
-package com.umc.instagramdemo;
+package com.umc.instagramdemo.instaController;
 
+import com.umc.instagramdemo.instaProvider.UserProvider;
 import com.umc.instagramdemo.personTableModel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

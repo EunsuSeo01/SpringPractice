@@ -1,4 +1,4 @@
-package com.umc.instagramdemo;
+package com.umc.instagramdemo.instaController;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

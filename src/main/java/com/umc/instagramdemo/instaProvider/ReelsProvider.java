@@ -1,5 +1,6 @@
-package com.umc.instagramdemo;
+package com.umc.instagramdemo.instaProvider;
 
+import com.umc.instagramdemo.instaDao.ReelsDao;
 import com.umc.instagramdemo.reelsTableModel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
