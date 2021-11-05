@@ -1,4 +1,4 @@
-package com.umc.instagramdemo.reelsTableModel;
+package com.umc.instagramdemo.personTableModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
