@@ -18,16 +18,16 @@ public class PostDao {
     }
 
     // GET
-    public List<GetPostRes> postRes() {
-        return this.jdbcTemplate.query("SELECT * FROM Post",
+    public List<GetPostRes> postRes(String userId) {
+        return this.jdbcTemplate.query("SELECT * FROM Post WHERE userId = ?",
                 (rs, rowNum) -> new GetPostRes(
                         rs.getInt("postIdx"),
                         rs.getString("userId"),
                         rs.getString("postImgUrl"),
                         rs.getString("content"),
                         rs.getString("status")
-                )
-        );
+                ),
+                userId);
     }
 
     // POST
