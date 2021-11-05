@@ -19,7 +19,7 @@ public class ReelsController {
 
     @ResponseBody
     @PostMapping("/reels")
-    public PostReelsRes postUser(@RequestBody PostReelsReq postReelsReq){   // 요청을 받아서 처리.
+    public PostReelsRes postUser(@RequestBody PostReelsReq postReelsReq) {   // 요청을 받아서 처리.
         PostReelsRes postReelsRes = reelsProvider.postReels(postReelsReq);
         return postReelsRes;    // 응답
     }

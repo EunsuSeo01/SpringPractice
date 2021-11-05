@@ -19,4 +19,9 @@ public class HeartProvider {
     public List<GetHeartRes> getHeart(int postIdx) {
         return heartDao.heartRes(postIdx);
     }
+
+    // POST
+    public PostHeartRes postHeart(PostHeartReq postHeartReq) {
+        return heartDao.addHeart(postHeartReq);
+    }
 }

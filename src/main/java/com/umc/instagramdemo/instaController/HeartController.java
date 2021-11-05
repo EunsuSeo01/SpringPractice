@@ -17,7 +17,14 @@ public class HeartController {
 
     // GET
     @GetMapping("/heart/{postIdx}") // 특정 게시물의 하트를 확인하는 것이니까.
-    public List<GetHeartRes> getHeart(@PathVariable int postIdx){
+    public List<GetHeartRes> getHeart(@PathVariable int postIdx) {
         return heartProv.getHeart(postIdx);
+    }
+
+    // POST
+    @ResponseBody
+    @PostMapping("/heart")
+    public PostHeartRes postHeart(@RequestBody PostHeartReq postHeartReq) {
+        return heartProv.postHeart(postHeartReq);
     }
 }

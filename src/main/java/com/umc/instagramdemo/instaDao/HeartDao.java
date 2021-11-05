@@ -27,4 +27,15 @@ public class HeartDao {
                         rs.getString("status")),
                 postIdx);
     }
+
+    // POST
+    public PostHeartRes addHeart(PostHeartReq postHeartReq) {
+        String createHeartQuery = "INSERT INTO Heart (postIdx, heartUserId) VALUES (?,?)";
+        Object[] createHeartParam = new Object[] {
+                postHeartReq.getPostIdx(), postHeartReq.getHeartUserId()
+        };
+        this.jdbcTemplate.update(createHeartQuery, createHeartParam);
+
+        return new PostHeartRes(this.jdbcTemplate.queryForObject("SELECT last_insert_id()", int.class));
+    }
 }
