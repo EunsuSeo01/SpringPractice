@@ -9,8 +9,9 @@ import java.util.List;
 
 @RestController
 public class HeartController {
-    HeartProvider heartProv;
+    private HeartProvider heartProv;
 
+    @Autowired
     public HeartController(HeartProvider heartProv) {
         this.heartProv = heartProv;
     }
