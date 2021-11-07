@@ -16,7 +16,13 @@ public class CommentProvider {
         this.cmtDao = cmtDao;
     }
 
+    // GET
     public List<GetCommentRes> getComment(int postIdx) {
         return cmtDao.cmtRes(postIdx);
+    }
+
+    // POST
+    public PostCommentRes postComment(PostCommentReq postCmtReq, int postIdx) {
+        return cmtDao.addComment(postCmtReq, postIdx);
     }
 }

@@ -16,9 +16,15 @@ public class CommentController {
         this.cmtProv = cmtProv;
     }
 
-    @GetMapping("/comment/{postIdx}")   // 특정 게시물의 댓글 조회.
+    // GET : 게시물의 댓글 조회.
+    @GetMapping("/comments/{postIdx}")   // 특정 게시물의 댓글 조회.
     public List<GetCommentRes> getComment(@PathVariable int postIdx) {
         return cmtProv.getComment(postIdx);
     }
 
+    // POST : 게시물에 댓글 달기.
+    @PostMapping("/comments/{postIdx}")
+    public PostCommentRes postComment(@RequestBody PostCommentReq postCmtReq, @PathVariable int postIdx) {
+        return cmtProv.postComment(postCmtReq, postIdx);
+    }
 }

@@ -18,6 +18,7 @@ public class CommentDao {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    // GET
     public List<GetCommentRes> cmtRes(int postIdx) {
         return this.jdbcTemplate.query("SELECT * FROM Comment WHERE postIdx = ?",
                 (rs, rowNum) -> new GetCommentRes(
@@ -27,5 +28,16 @@ public class CommentDao {
                         rs.getString("comment"),
                         rs.getString("status")
                 ), postIdx);
+    }
+
+    // POST
+    public PostCommentRes addComment(PostCommentReq postCmtReq, int postIdx) {
+        String createCmtQuery = "INSERT INTO Comment (postIdx, cmtUserId, comment) VALUES (?,?,?)";
+        Object[] createCmtParam = new Object[] {
+                postCmtReq.getPostIdx(), postCmtReq.getCmtUserId(), postCmtReq.getComment()
+        };
+        this.jdbcTemplate.update(createCmtQuery, createCmtParam);
+
+        return new PostCommentRes(this.jdbcTemplate.queryForObject("SELECT last_insert_id()", int.class));
     }
 }
