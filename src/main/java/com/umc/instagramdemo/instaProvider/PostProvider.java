@@ -16,8 +16,12 @@ public class PostProvider {
         this.postDao = postDao;
     }
 
-    public List<GetPostRes> getPost(String userId) {
+    public List<GetPostRes> getUserPost(String userId) {
         return postDao.postRes(userId);
+    }
+
+    public GetPostRes getOnePost(String userId, int postIdx) {
+        return postDao.getOneRes(userId, postIdx);
     }
 
     public PostPostRes postPost(PostPostReq postPostReq) {

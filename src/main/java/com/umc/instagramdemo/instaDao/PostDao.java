@@ -30,6 +30,19 @@ public class PostDao {
                 userId);
     }
 
+    // GET
+    public GetPostRes getOneRes(String userId, int postIdx) {
+        return this.jdbcTemplate.queryForObject("SELECT * FROM Post WHERE userId = ? AND postIdx = ?",
+                (rs, rowNum) -> new GetPostRes(
+                        rs.getInt("postIdx"),
+                        rs.getString("userId"),
+                        rs.getString("postImgUrl"),
+                        rs.getString("content"),
+                        rs.getString("status")
+                ),
+                userId, postIdx);
+    }
+
     // POST
     public int addPost(PostPostReq postPostReq) {
         String createPostQuery = "INSERT INTO Post (userId, postImgUrl, content) VALUES (?,?,?)";
